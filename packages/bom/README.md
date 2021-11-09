@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-const bom = require('bom');
+const bomHelper = require('bom-helper');
 
-// TODO: DEMONSTRATE API
+bomHelper.openTab('http://www.baidu.com');
 ```
