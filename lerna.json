@@ -5,8 +5,7 @@
   "version": "independent",
   "command": {
     "publish": {
-      "ignoreChanges": ["ignored-file", "*.md", "*.test.js"],
-      "registry": "https://registry.npmjs.org/"
+      "ignoreChanges": ["ignored-file", "*.md", "*.test.js"]
     }
   }
 }
