@@ -25,7 +25,7 @@ function numberWithCommas(x) {
 /**
  * 将数字转为自动提升单位的对象
  * 输入 20000，输出 { value: 2.00, unit: '万' }
- * 自动选择数据量级：万亿、亿、万、无
+ * 自动选择数据量级：万亿、亿、万
  * @param {*} num
  * @param {*} pattern
  * @returns
