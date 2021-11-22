@@ -6,28 +6,7 @@ javascript toolkit
 
 ```shell
 npm i wiliam
-# or
 yarn add wiliam
-```
-
-## Test
-
-```shell
-node test/index.js
-```
-
-## Publish
-
-修改 package.json 后的版本号
-
-```shell
-npm run release
-```
-
-## Sync
-
-```shell
-npm run sync
 ```
 
 ## 常用包
