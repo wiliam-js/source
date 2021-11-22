@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "description": "> TODO: description",
   "author": "Liam Wang <skid-scales.0a@icloud.com>",
-  "homepage": "https://github.com/wiliam-js/source#readme",
+  "homepage": "https://github.com/wiliam-js/source/packages/wiliam#readme",
   "license": "ISC",
   "main": "lib/wiliam.js",
   "directories": {
