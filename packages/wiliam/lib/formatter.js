@@ -30,11 +30,18 @@ function numberWithCommas(x) {
  * @param {*} pattern
  * @returns
  */
-function number2object (num, pattern = '0,0.00') {
-  if (typeof num !== 'number') return { value: '-', unit: '' }
-
+function number2object (input, pattern = '0,0.00', invalid = '-') {
+  let symbol = ''
   let unit = ''
-  let value = '-'
+  let value = invalid
+
+  if (typeof input !== 'number') return { symbol, value, unit }
+
+  if (input < 0) {
+    symbol = '-'
+  }
+  const num = Math.abs(input)
+  
   if (num >= wanyi) {
     unit = '万亿'
     // processNumber 来修复 9.99 被格式化为 10 的问题
@@ -49,7 +56,7 @@ function number2object (num, pattern = '0,0.00') {
     unit = ''
     value = numeral(num).format(pattern)
   }
-  return { value, unit }
+  return { symbol, value, unit }
 }
 
 /**
@@ -59,7 +66,7 @@ function number2object (num, pattern = '0,0.00') {
  */
 function number2string (num) {
   const numberObject = number2object(num)
-  return numberObject.value + numberObject.unit
+  return numberObject.symbol + numberObject.value + numberObject.unit
 }
 
 module.exports = {
