@@ -14,7 +14,21 @@ const hide = (...el) => [...el].forEach(e => (e.style.display = "none"));
  */
 const hasClass = (el, className) => el.classList.contains(className);
 
+/**
+ * 加载 js 脚本
+ * const element = injectScript('https://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js')
+ * element.onload = function() {}
+ * @param {*} src
+ */
+const injectScript = function (src) {
+    const s = document.createElement('script')
+    s.type = 'text/javascript'
+    s.src = src
+    return document.body.appendChild(s)
+  }
+
 module.exports = {
     hide,
-    hasClass
+    hasClass,
+    injectScript
 };
