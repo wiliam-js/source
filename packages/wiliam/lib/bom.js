@@ -166,6 +166,16 @@ function openTab(href) {
   window.open(href, windowName);
 }
 
+/**
+ * @description 相对路径转换成绝对路径方法
+ */
+var relative2absolute = function (url, base) {
+  if (!base) {
+      base = location.protocol + location.host;
+  }
+  return new URL(url, base).href;
+}
+
 module.exports = {
   getURLParameters,
   getParameterByName,
@@ -183,4 +193,5 @@ module.exports = {
   scrollToBottom,
   isAtEndOfScroll,
   openTab,
+  relative2absolute
 };
