@@ -28,6 +28,21 @@ const getURLParameters = (url) =>
   );
 
 /**
+ * 对象转为 query 字符串
+ * @param {*} queryParameters 
+ * @returns 
+ */
+const objectToQueryString = (queryParameters) => {
+  return queryParameters
+    ? Object.entries(queryParameters).reduce((queryString, [key, val]) => {
+        const symbol = queryString.length === 0 ? "?" : "&";
+        queryString += typeof val === "string" ? `${symbol}${key}=${val}` : "";
+        return queryString;
+      }, "")
+    : "";
+};
+
+/**
  * 模拟人工点击下载按钮
  * @param {String} url 文件URl
  * @param {String} filename 下载文件名
@@ -171,14 +186,15 @@ function openTab(href) {
  */
 var relative2absolute = function (url, base) {
   if (!base) {
-      base = location.protocol + location.host;
+    base = location.protocol + location.host;
   }
   return new URL(url, base).href;
-}
+};
 
 module.exports = {
   getURLParameters,
   getParameterByName,
+  objectToQueryString,
   downloadFileSync,
   downloadFileAsync,
   toDataUrl,
@@ -193,5 +209,5 @@ module.exports = {
   scrollToBottom,
   isAtEndOfScroll,
   openTab,
-  relative2absolute
+  relative2absolute,
 };
