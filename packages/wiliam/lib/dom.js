@@ -48,6 +48,45 @@ function findTextNodes (node) {
 }
 
 /**
+ * 加载 script 脚本
+ * @param {String} src
+ * @returns
+ */
+export function loadJs (src) {
+  return new Promise((resolve,reject)=>{
+    const script = document.createElement('script');
+    script.type = "text/javascript";
+    script.src= src;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      resolve();
+    }
+    script.onerror = () => {
+      reject(new Error('脚本加载失败'));
+    }
+  })
+}
+/**
+ * 加载 image
+ * @param {String} src 
+ * @returns 
+ */
+function loadImage (src) {
+  return new Promise((resolve, reject) => {
+    var img = new Image();
+    img.crossOrigin = 'Anonymous';
+    img.onload = function () {
+      resolve(img);
+    };
+    img.onerror = function () {
+      reject(new Error('图片加载失败'));
+    };
+    img.src = src;
+  });
+}
+
+/**
  * 高亮搜索词
  * @param {HTMLNodeList} elements
  * @param {String} keyword
@@ -84,5 +123,7 @@ module.exports = {
   hide,
   hasClass,
   injectScript,
-  heightSearch
+  heightSearch,
+  loadJs,
+  loadImage
 };
